@@ -1,0 +1,66 @@
+/* Popup Background */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.popup-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.popup-content label {
+    font-size: 1rem;
+    margin-right: 10px;
+}
+
+.popup-content input[type="radio"] {
+    margin-right: 10px;
+}
+
+#nextQuestion {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#nextQuestion:hover {
+    background-color: #0056b3;
+}
+
+.d-none {
+    display: none;
+}
+
+#clearResults {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#clearResults:hover {
+    background-color: #c82333;
+}

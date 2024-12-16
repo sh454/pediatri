@@ -1,0 +1,123 @@
+<!--İsim : Shahryar Hayati-->
+<!--Ö.N : B231200563-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pediatri Bölümleri</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="menu-icon" onclick="toggleNavbar()">
+        <i class="fas fa-bars"></i>
+    </div>
+    <!-- Menü -->
+    <div class="side-navbar">
+        <h3 class="fw-bold mb-4"><i class="fas fa-stethoscope me-2"></i>Pediatri</h3>
+        <a class="nav-link" href="index.html"><i class="fas fa-home"></i>Anasayfa</a>
+        <a class="nav-link" href="asistan.html"><i class="fas fa-user-md"></i>Asistanlar</a>
+        <a class="nav-link" href="hocalar.html"><i class="fas fa-chalkboard-teacher"></i>Hocalar</a>
+        <a class="nav-link active" href="bolumler.html"><i class="fas fa-building"></i>Bölümler</a>
+        <a class="nav-link" href="duyurular.html"><i class="fas fa-bullhorn"></i>Duyurular</a>
+        <a class="nav-link" href="acil.html"><i class="fas fa-exclamation-triangle"></i>Acil Durum</a>
+        <a class="nav-link" href="quiz.html"><i class="fas fa-pencil-alt"></i>Quiz</a>
+        <a class="nav-link" href="takvim.html"><i class="fas fa-calendar-alt"></i>Takvim</a>
+    </div>
+
+    <!-- Başlık -->
+    <div class="content" class="container mt-4">
+        <h1 class="text-center mb-4">Pediatri Bölümleri</h1>
+        <div id="bolumlerCards" class="row">
+            <!-- Bölüm 1 -->
+            <div class="col-md-4 mb-3" id="CocukAcil">
+                <div class="card">
+                    <img src="img/bolum1.png" class="card-img-top" alt="Çocuk Acil">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Çocuk Acil</h5>
+                        <p class="card-text">
+                            Hasta Sayısı: <span class="patients">0</span><br>
+                            Boş Yatak: <span class="beds">0</span><br>
+                            Sorumlu: <span class="responsible">Belirtilmemiş</span>
+                        </p>
+                        <button class="btn btn-primary" onclick="editSection('CocukAcil')">Bilgi Güncelle</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Bölüm 2 -->
+            <div class="col-md-4 mb-3" id="CocukYogunBakim">
+                <div class="card">
+                    <img src="img/bolum2.png" class="card-img-top" alt="Çocuk Yoğun Bakım">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Çocuk Yoğun Bakımı</h5>
+                        <p class="card-text">
+                            Hasta Sayısı: <span class="patients">0</span><br>
+                            Boş Yatak: <span class="beds">0</span><br>
+                            Sorumlu: <span class="responsible">Belirtilmemiş</span>
+                        </p>
+                        <button class="btn btn-primary" onclick="editSection('CocukYogunBakim')">Bilgi Güncelle</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Bölüm 3 -->
+            <div class="col-md-4 mb-3" id="CocukHematoloji">
+                <div class="card">
+                    <img src="img/bolum3.png" class="card-img-top" alt="Çocuk Hematoloji">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Çocuk Hematolojisi ve Onkolojisi</h5>
+                        <p class="card-text">
+                            Hasta Sayısı: <span class="patients">0</span><br>
+                            Boş Yatak: <span class="beds">0</span><br>
+                            Sorumlu: <span class="responsible">Belirtilmemiş</span>
+                        </p>
+                        <button class="btn btn-primary" onclick="editSection('CocukHematoloji')">Bilgi Güncelle</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Yetki Kodu Pop-up -->
+    <div id="auth-popup" class="popup-overlay d-none">
+        <div class="popup-content">
+            <h5>Yetki Kodu Giriniz</h5>
+            <div>
+                <label for="auth-code">Yetki Kodu:</label>
+                <input type="password" id="auth-code" class="form-control">
+            </div>
+            <button class="btn btn-success mt-2" onclick="checkAuthCode()">Gönder</button>
+            <button class="btn btn-danger mt-2" onclick="closeAuthPopup()">İptal</button>
+        </div>
+    </div>
+
+    <!-- Bilgi Güncelleme Pop-up -->
+    <div id="popup" class="popup-overlay d-none">
+        <div class="popup-content">
+            <h5 id="popup-title"></h5>
+            <div>
+                <label for="popup-patients">Hasta Sayısı:</label>
+                <input type="number" id="popup-patients" class="form-control">
+            </div>
+            <div>
+                <label for="popup-beds">Boş Yatak:</label>
+                <input type="number" id="popup-beds" class="form-control">
+            </div>
+            <div>
+                <label for="popup-responsible">Sorumlu:</label>
+                <input type="text" id="popup-responsible" class="form-control">
+            </div>
+            <button class="btn btn-success mt-2" onclick="savePopupData()">Kaydet</button>
+            <button class="btn btn-danger mt-2" onclick="closePopup()">İptal</button>
+        </div>
+    </div>
+
+    <footer class="bg-primary text-white text-center py-3 mt-3">
+        <p>&copy; 2024 Pediatri Bölümü Web Sitesi. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/bolumler.js"></script>
+</body>
+</html>

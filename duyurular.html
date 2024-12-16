@@ -1,0 +1,133 @@
+<!--İsim : Shahryar Hayati-->
+<!--Ö.N : B231200563-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duyurular</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="menu-icon" onclick="toggleNavbar()">
+        <i class="fas fa-bars"></i>
+    </div>
+    <div class="side-navbar">
+        <h3 class="fw-bold mb-4"><i class="fas fa-stethoscope me-2"></i>Pediatri</h3>
+        <a class="nav-link" href="index.html"><i class="fas fa-home"></i>Anasayfa</a>
+        <a class="nav-link" href="asistan.html"><i class="fas fa-user-md"></i>Asistanlar</a>
+        <a class="nav-link" href="hocalar.html"><i class="fas fa-chalkboard-teacher"></i>Hocalar</a>
+        <a class="nav-link" href="bolumler.html"><i class="fas fa-building"></i>Bölümler</a>
+        <a class="nav-link active" href="duyurular.html"><i class="fas fa-bullhorn"></i>Duyurular</a>
+        <a class="nav-link" href="acil.html"><i class="fas fa-exclamation-triangle"></i>Acil Durum</a>
+        <a class="nav-link" href="quiz.html"><i class="fas fa-pencil-alt"></i>Quiz</a>
+        <a class="nav-link" href="takvim.html"><i class="fas fa-calendar-alt"></i>Takvim</a>
+    </div>
+    <div class="content" class="container mt-4">
+        <h1 class="text-center mb-4">Duyurular ve Başarılarımız</h1>
+
+        <!-- Slider (Duyurular) -->
+        <div id="announcementSlider" class="carousel slide mb-4" data-bs-ride="carousel">
+            <div class="carousel-inner" id="carouselContainer">
+                <div class="carousel-item active">
+                    <img src="img/duyuru1.jpg" class="d-block w-100" alt="Seminer">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Hizmet İçi Eğitim</h5>
+                        <p>Yeni doğan yoğun bakım eğitimine tüm personelimiz davetlidir.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/duyuru2.jpg" class="d-block w-100" alt="Tatbikat">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Yangın Tatbikatı</h5>
+                        <p>20 Aralık'ta yangın tatbikatı gerçekleştirilecektir.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#announcementSlider" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Önceki</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#announcementSlider" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Sonraki</span>
+            </button>
+        </div>
+        <!-- Başarılarımız -->
+        <h2 class="text-center mb-4">Başarılarımız</h2>
+        <div id="hocalarCards" class="row">
+            <div class="col-md-4 mb-3">
+                <div class="card text-center">
+                    <img src="img/hoca1.jpg" class="card-img-top" alt="Başarı 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Prof. Dr. Mehmet Yıldızdal</h5>
+                        <p class="card-text">Ulusal Pediatri Kongresi'nde birincilik ödülü.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card text-center">
+                    <img src="img/hoca2.jpg" class="card-img-top" alt="Başarı 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Doç. Dr. Kenan Turan</h5>
+                        <p class="card-text">Çocuk hematolojisi alanında yılın araştırmacısı ödülü.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="basariContainer"></div>
+            <!-- Daha Fazla Kart Eklenebilir -->
+        </div>
+        <!-- Yetki Kodu Giriş Butonları -->
+        <div class="text-center">
+            <button class="btn btn-primary mb-4" onclick="showAuthPrompt()">Duyuru Ekle/Sil</button>
+        </div>        
+        <!-- Yetki Kodu Giriş ve Duyuru Formu -->
+        <div id="authPrompt" class="mb-4" style="display: none;">
+            <h3 class="text-center">Yetki Kodu Girin</h3>
+            <div class="input-group mb-3">
+                <input type="password" id="authCodeInput" class="form-control" placeholder="Yetki Kodu">
+                <button class="btn btn-success" onclick="checkAuthCode()">Doğrula</button>
+            </div>
+        </div>
+        <div id="announcementFormContainer" style="display: none;">
+            <h2 class="text-center">Yeni Duyuru Ekle</h2>
+            <form id="announcementForm">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Duyuru Başlığı</label>
+                    <input type="text" id="title" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Duyuru Açıklaması</label>
+                    <textarea id="description" class="form-control" rows="3" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Duyuru Arka Plan Fotoğrafı</label>
+                    <input type="file" id="image" class="form-control" accept="image/*" required>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="addAnnouncement()">Duyuru Ekle</button>
+            </form>
+        </div>
+        <div id="deleteFormContainer" style="display: none;">
+            <h2 class="text-center">Duyuru Sil</h2>
+            <form id="deleteForm">
+                <div class="mb-3">
+                    <label for="deleteTitle" class="form-label">Silinecek Duyuru Başlığı</label>
+                    <input type="text" id="deleteTitle" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="deleteCode" class="form-label">Yetki Kodu</label>
+                    <input type="password" id="deleteCode" class="form-control" required>
+                </div>
+                <button type="button" class="btn btn-danger" onclick="deleteAnnouncement()">Duyuru Sil</button>
+            </form>
+        </div>        
+    </div>
+    <footer class="bg-primary text-white text-center py-3 mt-3">
+        <p>&copy; 2024 Pediatri Bölümü Web Sitesi. Tüm hakları saklıdır.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/duyurular.js"></script>
+</body>
+</html>

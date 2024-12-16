@@ -1,0 +1,88 @@
+<!--İsim : Shahryar Hayati-->
+<!--Ö.N : B231200563-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pediatri Bölümü Web Sitesi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="menu-icon" onclick="toggleNavbar()">
+        <i class="fas fa-bars"></i> <!-- Font Awesome veya benzeri bir ikon kullanabilirsiniz -->
+    </div>
+    <!-- Yan Menü -->
+    <div class="side-navbar">
+        <h3 class="fw-bold mb-4"><i class="fas fa-stethoscope me-2"></i>Pediatri</h3>
+        <a class="nav-link active" href="index.html"><i class="fas fa-home"></i>Anasayfa</a>
+        <a class="nav-link" href="asistan.html"><i class="fas fa-user-md"></i>Asistanlar</a>
+        <a class="nav-link" href="hocalar.html"><i class="fas fa-chalkboard-teacher"></i>Hocalar</a>
+        <a class="nav-link" href="bolumler.html"><i class="fas fa-building"></i>Bölümler</a>
+        <a class="nav-link" href="duyurular.html"><i class="fas fa-bullhorn"></i>Duyurular</a>
+        <a class="nav-link" href="acil.html"><i class="fas fa-exclamation-triangle"></i>Acil Durum</a>
+        <a class="nav-link" href="quiz.html"><i class="fas fa-pencil-alt"></i>Quiz</a>
+        <a class="nav-link" href="takvim.html"><i class="fas fa-calendar-alt"></i>Takvim</a>
+     </div>
+    </div>
+    <!-- İçerik -->
+    <div class="content">
+        <h2><center>Pediatri Bölümüne hoş Geldiniz</center></h2>
+        <!-- Slider -->
+        <div id="newsSlider" class="carousel slide mt-3" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="img/slider1.jpg" class="slider d-block w-100" alt="Slider 1">
+                    <div id="new" class="carousel-caption d-none d-md-block">
+                        <h5>Hastane Duyuru ve Haberleri</h5>
+                        <p>***************************</p>
+                        <div class="calendarTable2">
+                            <table class="table table-bordered text-center" id="calendarTable">
+                            <tbody>
+                                <!-- Dinamik olarak doldurulacak -->
+                            </tbody>
+                           </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/slider2.jpg" class="slider d-block w-100" alt="Slider 2">
+                    <div class="carousel-caption d-none d-md-block">
+                        <div class="calendarTable2">
+                            <h5>Başarılarımız</h5>
+                        <p><b>Prof. Dr. Mehmet Yıldızdal</b> Ulusal Pediatri Kongresi'nde birincilik ödülü aldı.</p>
+                        <p><b>Doç. Dr. Kenan Turan</b> Çocuk hematolojisi alanında yılın araştırmacısı ödülü aldı.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/slider3.jpg" class="slider d-block w-100" alt="Slider 3">
+                    <div class="carousel-caption d-none d-md-block">
+                        <div class="calendarTable2">
+                            <h5>Eğitim ve Seminerler</h5>
+                        <p>Gelecek eğitim ve seminerlerden haberdar olabilirsiniz.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#newsSlider" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Önceki</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#newsSlider" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Sonraki</span>
+            </button>
+        </div>
+
+    </div>
+    <!-- Footer -->
+    <footer class="bg-primary text-white text-center py-4">
+        <p>&copy; 2024 Pediatri Bölümü Web Sitesi. Tüm hakları saklıdır.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!--İsim : Shahryar Hayati-->
+<!--Ö.N : B231200563-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asistanlar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="menu-icon" onclick="toggleNavbar()">
+        <i class="fas fa-bars"></i> <!-- Font Awesome veya benzeri bir ikon kullanabilirsiniz -->
+    </div>
+    <!-- Menü -->
+    <div class="side-navbar" >
+        <h3 class="fw-bold mb-4"><i class="fas fa-stethoscope me-2"></i>Pediatri</h3>
+        <a class="nav-link" href="index.html"><i class="fas fa-home"></i>Anasayfa</a>
+        <a class="nav-link active" href="asistan.html"><i class="fas fa-user-md"></i>Asistanlar</a>
+        <a class="nav-link" href="hocalar.html"><i class="fas fa-chalkboard-teacher"></i>Hocalar</a>
+        <a class="nav-link" href="bolumler.html"><i class="fas fa-building"></i>Bölümler</a>
+        <a class="nav-link" href="duyurular.html"><i class="fas fa-bullhorn"></i>Duyurular</a>
+        <a class="nav-link" href="acil.html"><i class="fas fa-exclamation-triangle"></i>Acil Durum</a>
+        <a class="nav-link" href="quiz.html"><i class="fas fa-pencil-alt"></i>Quiz</a>
+        <a class="nav-link" href="takvim.html"><i class="fas fa-calendar-alt"></i>Takvim</a>
+    </div>
+
+    <!-- İçerik Başlığı -->
+    <div class="content" >
+        <h1 class="text-center mb-4">Pediatri Asistanları</h1>
+        <!-- Asistan Kartları -->
+        <div id="asistantCards" class="row" >
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <img src="img/asistan1.jpg" class="card-img-top" alt="Asistan 1">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Dr. Ahmet Yılmaz</h5>
+                        <p class="card-text">E-posta: ahmet.yilmaz@example.com<br>Telefon: +90 555 123 4567</p>
+                        <button class="btn btn-primary" onclick="showPopup('Ahmet Yılmaz', 'ahmet.yilmaz@example.com', '+90 555 123 4567', 'Çocuk Acil Nöbetleri')">Detaylı Bilgi</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <img src="img/asistan2.jpg" class="card-img-top" alt="Asistan 2">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Dr. Ayşe Demir</h5>
+                        <p class="card-text">E-posta: ayse.demir@example.com<br>Telefon: +90 555 987 6543</p>
+                        <button class="btn btn-primary" onclick="showPopup('Ayşe Demir', 'ayse.demir@example.com', '+90 555 987 6543', 'Çocuk Yoğun Bakımı')">Detaylı Bilgi</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <img src="img/asistan3.jpg" class="card-img-top" alt="Asistan 3">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Dr. Kaan Yılmaz</h5>
+                        <p class="card-text">E-posta: kaan.yilmaz@example.com<br>Telefon: +90 555 654 3210</p>
+                        <button class="btn btn-primary" onclick="showPopup('Kaan Yılmaz', 'kaan.yilmaz@example.com', '+90 555 654 3210', 'Çocuk Yoğun Bakımı')">Detaylı Bilgi</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <img src="img/asistan4.jpg" class="card-img-top" alt="Asistan 4">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Dr. Aylin Yıldız</h5>
+                        <p class="card-text">E-posta: aylin.yildiz@example.com<br>Telefon: +90 555 321 9876</p>
+                        <button class="btn btn-primary" onclick="showPopup('Aylin Yıldız', 'aylin.yildiz@example.com', '+90 555 321 9876', 'Çocuk Yoğun Bakımı')">Detaylı Bilgi</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <img src="img/asistan5.jpg" class="card-img-top" alt="Asistan 5">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Dr. Arda Tunç</h5>
+                        <p class="card-text">E-posta: arda.tunc@example.com<br>Telefon: +90 555 789 0123</p>
+                        <button class="btn btn-primary" onclick="showPopup('Arda Tunç', 'arda.tunc@example.com', '+90 555 789 0123', 'Çocuk Yoğun Bakımı')">Detaylı Bilgi</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Asistan Ekleme Formu -->
+        <div id="addAsistantForm" class="card d-none">
+            <div class="card-body">
+                <h5 class="card-title">Yeni Asistan Ekle</h5>
+                <form id="asistantForm" onsubmit="addAsistant(event)">
+                    <div class="mb-3">
+                        <label for="asistantName" class="form-label">Ad Soyad</label>
+                        <input type="text" class="form-control" id="asistantName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="asistantEmail" class="form-label">E-posta</label>
+                        <input type="email" class="form-control" id="asistantEmail" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="asistantPhone" class="form-label">Telefon</label>
+                        <input type="text" class="form-control" id="asistantPhone" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="asistantDepartment" class="form-label">Bölüm</label>
+                        <select id="asistantDepartment" class="form-select" required>
+                            <option value="" disabled selected>Bölüm Seçin</option>
+                            <option value="Çocuk Acil Nöbetleri">Çocuk Acil Nöbetleri</option>
+                            <option value="Çocuk Yoğun Bakımı">Çocuk Yoğun Bakımı</option>
+                            <option value="Çocuk Hematolojisi ve Onkolojisi">Çocuk Hematolojisi ve Onkolojisi</option>
+                        </select>
+                    </div>                    
+                    <div class="mb-3">
+                        <label for="asistantImage" class="form-label">Fotoğraf</label>
+                        <input type="file" class="form-control" id="asistantImage" accept="image/*">
+                    </div>                    
+                    <button type="submit" class="btn btn-primary">Ekle</button>
+                    <button type="button" class="btn btn-secondary" onclick="hideAddForm()">İptal</button>
+                </form>
+            </div>
+        </div>
+        <!-- Yeni Asistan Ekleme Butonu -->
+        <div class="text-center mb-3">
+            <button class="btn btn-success" onclick="showAddForm()">Yeni Asistan Ekle</button>
+        </div>
+        <!-- Pop-Up -->
+        <div id="popup" class="popup-overlay d-none">
+            <div class="popup-content">
+                <h5 id="popup-title"></h5>
+                <p id="popup-info"></p>
+                <button class="btn btn-danger" onclick="closePopup()">Kapat</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white text-center py-3 mt-3">
+        <p>&copy; 2024 Pediatri Bölümü Web Sitesi. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/asistan.js"></script>
+</body>
+</html>

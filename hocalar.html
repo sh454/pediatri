@@ -1,0 +1,134 @@
+<!--İsim : Shahryar Hayati-->
+<!--Ö.N : B231200563-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Öğretim Üyeleri</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="menu-icon" onclick="toggleNavbar()">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <div class="side-navbar">
+        <h3 class="fw-bold mb-4"><i class="fas fa-stethoscope me-2"></i>Pediatri</h3>
+        <a class="nav-link" href="index.html"><i class="fas fa-home"></i>Anasayfa</a>
+        <a class="nav-link" href="asistan.html"><i class="fas fa-user-md"></i>Asistanlar</a>
+        <a class="nav-link active" href="hocalar.html"><i class="fas fa-chalkboard-teacher"></i>Hocalar</a>
+        <a class="nav-link" href="bolumler.html"><i class="fas fa-building"></i>Bölümler</a>
+        <a class="nav-link" href="duyurular.html"><i class="fas fa-bullhorn"></i>Duyurular</a>
+        <a class="nav-link" href="acil.html"><i class="fas fa-exclamation-triangle"></i>Acil Durum</a>
+        <a class="nav-link" href="quiz.html"><i class="fas fa-pencil-alt"></i>Quiz</a>
+        <a class="nav-link" href="takvim.html"><i class="fas fa-calendar-alt"></i>Takvim</a>
+    </div>
+
+    <div class="content" class="container mt-4">
+        <h1 class="text-center mb-4">Pediatri Bölümü Öğretim Üyeleri</h1>
+        <div id="hocalarCards" class="row">
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <img src="img/hoca1.jpg" class="card-img-top" alt="Prof. Dr. Mehmet Yıldızdal">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Prof. Dr. Mehmet Yıldızdal</h5>
+                        <button class="btn btn-primary" onclick="showPopup('Prof. Dr. Mehmet Yıldızdal', 'mehmet.yildizdal@example.com', '+90 555 123 4567', 'Çocuk Hematolojisi ve Onkolojisi')">Detaylı Bilgi</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <img src="img/hoca2.jpg" class="card-img-top" alt="Doç. Dr. Kenan Turan">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Doç. Dr. Kenan Turan</h5>
+                        <button class="btn btn-primary" onclick="showPopup('Doç. Dr. Kenan Turan', 'kenan.turan@example.com', '+90 555 987 6543', 'Çocuk Acil')">Detaylı Bilgi</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <img src="img/hoca3.jpg" class="card-img-top" alt="Doç. Dr. Enes Oğuz">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Doç. Dr. Enes Oğuz</h5>
+                        <button class="btn btn-primary" onclick="showPopup('Doç. Dr. Enes Oğuz', 'enes.oguz@example.com', '+90 555 987 6543', 'Çocuk Yoğun Bakımı')">Detaylı Bilgi</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pop-Up -->
+    <div id="popup" class="popup-overlay d-none">
+        <div class="popup-content">
+            <h5 id="popup-title"></h5>
+            <p id="popup-info"></p>
+            <div id="auth-section" class="mb-3">
+                <label for="auth-code" class="form-label">Yetki Kodu:</label>
+                <input type="password" id="auth-code" class="form-control" placeholder="Yetki kodunu girin">
+            </div>
+            <button id="show-info-btn" class="btn btn-primary" onclick="checkAuthCode()">Bilgileri Göster</button><br>
+            <button class="btn btn-danger" onclick="closePopup()">Kapat</button>
+        </div>
+    </div>
+
+    <footer class="bg-primary text-white text-center py-3 mt-3">
+        <p>&copy; 2024 Pediatri Bölümü Web Sitesi. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let currentPopupData = {};  // Depolama için
+
+        function showPopup(name, email, phone, department) {
+            // Pop-up içeriğini gösterme
+            currentPopupData = { name, email, phone, department };
+            document.getElementById('popup-title').textContent = name;
+            document.getElementById('popup-info').innerHTML = ''; // Detaylar gizlensin
+            document.getElementById('auth-section').style.display = 'block';  // Yetki kodu kısmını göster
+            document.getElementById('popup-info').style.display = 'none';  // Bilgiler gizlensin
+            document.getElementById('auth-code').value = '';  // Yetki kodu alanını temizle
+            document.getElementById('auth-code').disabled = false;  // Yetki kodu alanını aktif et
+            document.getElementById('show-info-btn').style.display = 'block';  // "Bilgileri Göster" butonunu göster
+
+            // Pop-up'ı göster
+            document.getElementById('popup').classList.remove('d-none');
+        }
+
+        function closePopup() {
+            document.getElementById('popup').classList.add('d-none');
+        }
+
+        function checkAuthCode() {
+            const authCode = document.getElementById('auth-code').value;
+            const correctCode = '12345';  // Yetki kodu (örnek)
+
+            if (authCode === correctCode) {
+                // Yetki doğrulandıktan sonra detayları göster
+                const { name, email, phone, department } = currentPopupData;
+                document.getElementById('popup-info').innerHTML = `
+                    E-posta: ${email}<br>
+                    Telefon: ${phone}<br>
+                    Bölüm: ${department}
+                `;
+                document.getElementById('popup-info').style.display = 'block';  // Bilgileri göster
+                document.getElementById('auth-section').style.display = 'none';  // Yetki kodu kısmını gizle
+                document.getElementById('show-info-btn').style.display = 'none';  // "Bilgileri Göster" butonunu gizle
+                document.getElementById('auth-code').disabled = true;  // Yetki kodu alanını devre dışı bırak
+            } else {
+                alert('Yanlış yetki kodu!');  // Hata mesajı
+            }
+        }
+        
+           function toggleNavbar() {
+           const navbar = document.querySelector('.side-navbar');
+           navbar.classList.toggle('show'); // 'show' sınıfını ekler veya kaldırır
+           }
+
+    </script>
+</body>
+</html>
